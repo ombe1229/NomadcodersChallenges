@@ -13,8 +13,8 @@ let finished = [];
 
 
 function getRandomId() {
-    min = Math.ceil(100000000000);
-    max = Math.floor(1000000000000);
+    const min = Math.ceil(100000000000);
+    const max = Math.floor(1000000000000);
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
