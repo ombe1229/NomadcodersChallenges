@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+</head>
+
+<body>
+    <h1>Random Number Game</h1>
+    <h3 id="rangeText">Generate a number between 0 and 10</h3>
+    <input type="range" id="jsRange" oninput="handleRangeChange(this.value)" min="5" max="200" value="10" step="5">
+    <p>Guess the number</p>
+    <input id="js-numberBox" type="number" min="0" max="200">
+    <button id="js-playBtn" type="button">Play!</button>
+    <p id="infoBox"></p>
+    <h3 id="resultBox"></h3>
+    <script src="src/index.js"></script>
+</body>
+</html>
