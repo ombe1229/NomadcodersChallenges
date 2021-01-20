@@ -15,7 +15,8 @@ function getRandomNum(max) {
 }
 
 
-function handleRangeChange(max) {
+function handleRangeChange() {
+    const max = rangeBar.value;
     rangeText.innerText = `Generate a number between 0 and ${max}`;
 }
 
@@ -39,6 +40,7 @@ function play() {
 
 function init() {
     playBtn.addEventListener("click", play);
+    rangeBar.addEventListener("input", handleRangeChange);
 }
 
 init();
