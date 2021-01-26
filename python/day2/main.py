@@ -7,7 +7,7 @@ Start by creating the functions
 
 
 def is_on_list(_list, text):
-    return True if text in _list else False
+    return text in _list
 
 
 def get_x(x, n):
