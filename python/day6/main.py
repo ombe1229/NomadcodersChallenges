@@ -1,6 +1,7 @@
 import os
 import requests
 from bs4 import BeautifulSoup
+from babel.numbers import format_currency
 
 
 def get_country(tr):
@@ -50,7 +51,7 @@ country2 = get_country(tr)
 print(f'{country2[0].text}\n')
 
 print(
-    f'How many {country1[0].text} do you want to convert to {country2[0].text}?')
+    f'How many {country1[0].text} do you want to convert to {country2[0].text}?\n')
 while 1:
     amount = input()
     if not amount.isdigit():
@@ -64,9 +65,14 @@ con = req.content
 html = BeautifulSoup(con, 'html.parser')
 
 table = html.find('div', {'class': 'col-lg-6 text-xs-center text-lg-left'})
-h3 = table.find('h3', {'class': 'cc__source-to-target'})
+try:
+    h3 = table.find('h3', {'class': 'cc__source-to-target'})
+except:
+    print('예외처리 귀찮아요')
+    exit()
 span = h3.find_all('span')
 exchange = span[2].text
 
 result = int(float(amount) * float(exchange))
-print(f'{country1[2].text} {amount} is {country2[2].text} {result}')
+print(
+    f'{format_currency(amount, country1[2].text, locale="ko_KR")} is {format_currency(result, country2[2].text, locale="ko_KR")}')
